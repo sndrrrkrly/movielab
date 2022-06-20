@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 
 import { Grid, Box, Typography, CircularProgress, Alert, AlertTitle, Button } from "@mui/material";
+import { HeaderController } from "../../components/controllers/header/HeaderController";
 
 export const Movie = () => {
      let params = useParams();
@@ -42,6 +43,8 @@ export const Movie = () => {
 
      return (
           <Box>
+               <HeaderController title = {params.slug} />
+
                { loading ? (
                     <Grid container spacing = {0} direction = "column" alignItems = "center" justifyContent = "center">
                          <CircularProgress />
