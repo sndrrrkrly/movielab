@@ -12,7 +12,7 @@ export const Landing = () => {
      const [ executeSearch, { loading, error, data = {} } ] = useLazyQuery(searchMovie);
 
      const onTextChange = (e) => setSearchString(e.target.value);
-     const onHandleSubmit = () => executeSearch({ variables: { query: searchString }});
+     const onHandleSubmit = () => { if (searchString === "") return; executeSearch({ variables: { query: searchString }}); }
 
      return (
           <Grid>
