@@ -34,10 +34,6 @@ export const Landing = () => {
                { loading ? (
                     <Grid container spacing = {0} direction = "column" alignItems = "center" justifyContent = "center" sx = {{ mt: 12 }}>
                          <CircularProgress />
-                         
-                         <Typography variant = "h6" sx = {{ mt: 2 }}>
-                              Loading, please wait...
-                         </Typography>
                     </Grid>
                ) : error ? (
                     <Alert severity = "error">
@@ -49,7 +45,7 @@ export const Landing = () => {
                ) : (
                     <Grid container spacing = {2}>
                          <Grid container justifyContent = "center" item xs = {12} sx = {{ display: "flex" }}>
-                              {data.searchMovies?.map((e, i) => {
+                              {data.searchMovies?.map((e, i) => (
                                    <Card key = {i} sx = {{ boxShadow: 12, maxWidth: 345, display: 'flex', justifyContent: 'space-between', flexDirection: 'column', m: 2, p: 3 }} variant = "outlined">
                                         <CardActionArea>
                                              <Typography gutterBottom variant = "h6" fontWeight = "bold" component = "div">
@@ -63,7 +59,7 @@ export const Landing = () => {
                                              </Typography>
                                         </CardActionArea>
                                    </Card>
-                              })}
+                              ))}
                          </Grid>
                     </Grid>
                )}
